@@ -1,6 +1,8 @@
 # Esta versión requiere instalación de dependencias
 Ejecuta `npm install` en la terminal antes de utilizar esta versión.
 
+---
+
 # Documentación de Sprint Planning - Sprint 1
 
 ## Información General del Sprint
