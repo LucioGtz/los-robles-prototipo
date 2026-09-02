@@ -1,59 +1,82 @@
 import React from 'react';
+import HistorialPagos from './HistorialPagos';
 
 const DashboardView = () => {
   return (
-    <div className="container">
-      <h2>Portal de Residentes - Resumen General</h2>
-       
-       {/* SECCIÓN 1: DASHBOARD FINANCIERO */}
-       <div className="financial-summary-section">
-        <div className="summary-header">
-          <h3>Estado de Cuenta Actual</h3>
-          <p>Resumen de obligaciones financieras del residente.</p>
-
-          <div className="summary-grid">
-             <div className="summary-item">
-               <label>Saldo Total Pendiente</label>
-               <span className="amount">$1,250.00</span>
-             </div>
-              <div className="summary-item">
-                <label>Próximo Vencimiento</label>
-                <span className="amount">15 de Octubre, 2023</span>
-              </div>
-          </div>
+    <div className="dashboard-container">
+      
+      {/* HEADER DE BIENVENIDA */}
+      <header className="dashboard-header">
+        <div>
+          <span className="subtitle">Residencial Los Robles</span>
+          <h2>¡Hola, Residente! 👋</h2>
         </div>
+        <div className="user-avatar">LR</div>
+      </header>
+
+      {/* CONTENEDOR PRINCIPAL RESPONSIVO */}
+      <main className="dashboard-layout">
         
-        {/* SECCIÓN 2: ACCIONES RÁPIDAS */}
-      <div className="dashboard-section">
-        <h3>Gestión de Residencia</h3>
-        <div className="dashboard-grid">
+        {/* COLUMNA IZQUIERDA: RESUMEN Y ACCIONES */}
+        <section className="main-column">
           
-          <div className="module">
-            <h3>Mantenimiento</h3>
-            <p>Reporta fallas en áreas comunes o solicita servicios de reparación.</p>
-            <button className="btn btn-primary dashboard-btn">Crear Reporte</button>
+          {/* SECCIÓN 1: DASHBOARD FINANCIERO */}
+          <div className="card-financial">
+            <div className="card-financial-body">
+              <span className="label">Pagos pendientes</span>
+              <div className="amount-row">
+                <strong className="amount">$ 1,250.00</strong>
+                <button className="btn-pay">Pagar ›</button>
+              </div>
+              <span className="due-date">
+                Próximo vencimiento: 15 de Octubre, 2023
+              </span>
+            </div>
+
+            <div className="spei-banner">
+              <span>Transferencia SPEI</span>
+              <div>
+                <code>706180320018028347</code>
+                <button title="Copiar CLABE">📋</button>
+              </div>
+            </div>
           </div>
 
-          <div className="module">
-            <h3>Documentos</h3>
-            <p>Accede a tu contrato de arrendamiento, reglamentos y circulares.</p>
-            <button className="btn btn-primary dashboard-btn">Ver Documentos</button>
+          {/* SECCIÓN 2: ACCIONES RÁPIDAS */}
+          <div className="actions-section">
+            <h3 className="section-title">¿Qué deseas hacer?</h3>
+            <div className="actions-grid">
+              
+              <div className="action-card">
+                <div className="action-icon">🛠️</div>
+                <strong>Mantenimiento</strong>
+                <span>Reporta fallas en áreas comunes</span>
+                <button>Crear Reporte</button>
+              </div>
+
+              <div className="action-card">
+                <div className="action-icon">📄</div>
+                <strong>Documentos</strong>
+                <span>Reglamentos y circulares</span>
+                <button>Ver Documentos</button>
+              </div>
+
+            </div>
           </div>
-        </div>
-      </div>
-       {/* SECCIÓN 3: HISTORIAL DE PAGOS (Lugar para la tabla) */}
-      <div className="dashboard-section">
-        <h3>Historial de Pagos</h3>
-        <div className="history-container">
-          {/* Aquí es donde tus compas pondrán la tabla de datos */}
-          <p style={{textAlign: 'center', color: '#888', padding: '20px'}}>
-            La tabla de historial de pagos se cargará aquí automáticamente.
-          </p>
-        </div>
-      </div>
-       </div>
+
+        </section>
+
+        {/* COLUMNA DERECHA: HISTORIAL Y CUOTAS (US02) */}
+        <section className="side-column">
+          <h3 className="section-title">Gestión de Cuotas</h3>
+          <div className="history-container">
+            <HistorialPagos />
+          </div>
+        </section>
+
+      </main>
+
     </div>
-
   );
 };
 
