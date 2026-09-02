@@ -5,7 +5,7 @@ import LoginView from './components/LoginView';
 import RegisterView from './components/RegisterView';
 import ForgotPasswordView from './components/ForgotPasswordView';
 import DashboardView from './components/DashboardView';
-
+import AdminDashboardView from './components/AdminDashboardView'; // <--- Nueva vista para la US03
 
 function App() {
   return (
@@ -16,6 +16,7 @@ function App() {
         <Route path="/register" element={<RegisterView />} /> 
         <Route path="/forgot" element={<ForgotPasswordView />} />
         <Route path="/dashboard" element={<DashboardView />} />
+        <Route path="/admin-dashboard" element={<AdminDashboardView />} /> {/* <--- Ruta US03 */}
       </Routes>
     </Router>
   );

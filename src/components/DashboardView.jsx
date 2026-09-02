@@ -1,17 +1,39 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import HistorialPagos from './HistorialPagos';
 
 const DashboardView = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem('userRole');
+    navigate('/login');
+  };
+
   return (
     <div className="dashboard-container">
       
-      {/* HEADER DE BIENVENIDA */}
-      <header className="dashboard-header">
+      {/* HEADER DE BIENVENIDA CON BOTÓN DE LOGOUT (IGUAL AL DE ADMIN) */}
+      <header className="dashboard-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div>
           <span className="subtitle">Residencial Los Robles</span>
           <h2>¡Hola, Residente! 👋</h2>
         </div>
-        <div className="user-avatar">LR</div>
+        
+        <button 
+          onClick={handleLogout}
+          style={{ 
+            padding: '8px 16px', 
+            background: '#d32f2f', 
+            color: '#fff', 
+            border: 'none', 
+            borderRadius: '6px', 
+            cursor: 'pointer',
+            fontSize: '0.85rem'
+          }}
+        >
+          Cerrar Sesión
+        </button>
       </header>
 
       {/* CONTENEDOR PRINCIPAL RESPONSIVO */}

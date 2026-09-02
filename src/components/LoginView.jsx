@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-
 const LoginView = () => {
   const [usuario, setUsuario] = useState('');
   const [contrasena, setContrasena] = useState('');
+  const [rol, setRol] = useState('residente'); // 'residente' o 'admin'
   const [error, setError] = useState(null);
   const navigate = useNavigate(); 
 
@@ -13,9 +13,15 @@ const LoginView = () => {
     setError(null);
 
     if (usuario === 'test' && contrasena === '123456') {
-      // En un entorno real, aquí se llamaría a la API de login
-      alert('¡Login exitoso! Redirigando al portal...');
-      navigate('/dashboard'); 
+      // Guardar el rol activo para usarlo en la app
+      localStorage.setItem('userRole', rol);
+
+      // Redirección según el rol seleccionado
+      if (rol === 'admin') {
+        navigate('/admin-dashboard');
+      } else {
+        navigate('/dashboard'); 
+      }
 
     } else if (usuario.trim() !== '' && contrasena.trim() !== '') {
        setError('Usuario o contraseña incorrectos. Intenta con: Usuario=test, Contraseña=123456');
@@ -26,9 +32,28 @@ const LoginView = () => {
 
   return (
     <div className="container">
-      <h2>Portal de Residentes</h2>
+      <h2>Portal Los Robles</h2>
       <form onSubmit={handleSubmit}>
         {error && <div className="message">{error}</div>}
+
+        <div className="form-group">
+          <label htmlFor="rol">Ingresar como</label>
+          <select
+            id="rol"
+            value={rol}
+            onChange={(e) => setRol(e.target.value)}
+            style={{
+              width: '100%',
+              padding: '10px',
+              borderRadius: '4px',
+              border: '1px solid #ccc',
+              marginBottom: '15px'
+            }}
+          >
+            <option value="residente">Residente</option>
+            <option value="admin">Administrador</option>
+          </select>
+        </div>
 
         <div className="form-group">
           <label htmlFor="usuario">Usuario</label>
@@ -52,7 +77,9 @@ const LoginView = () => {
           />
         </div>
 
-        <button type="submit" className="btn btn-primary">Acceder al Portal</button>
+        <button type="submit" className="btn btn-primary">
+          Acceder como {rol === 'admin' ? 'Administrador' : 'Residente'}
+        </button>
       </form>
 
       <div className="forgot-link">
