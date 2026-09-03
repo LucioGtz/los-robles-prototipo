@@ -1,23 +1,27 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 const RegisterView = () => {
   const [usuario, setUsuario] = useState('');
   const [email, setEmail] = useState('');
   const [contrasena, setContrasena] = useState('');
   const [error, setError] = useState(null);
+  
+  const navigate = useNavigate(); // Hook para redirigir
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setError(null); 
     
-    // Aquí iría la lógica de llamada a tu API de registro
     if (!usuario || !email || !contrasena) {
         setError('Todos los campos son obligatorios.');
         return;
     }
 
     alert(`Registro exitoso para ${usuario}. ¡Ahora puedes iniciar sesión!`);
-    // Redirigir al login después del éxito
+    
+    // Redirige al login de forma limpia dentro del Router
+    navigate('/login');
   };
 
   return (
@@ -63,7 +67,7 @@ const RegisterView = () => {
       </form>
 
       <div className="forgot-link">
-        ¿Ya tienes cuenta? <a href="/login">Inicia sesión aquí</a>
+        ¿Ya tienes cuenta? <Link to="/login">Inicia sesión aquí</Link>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const LoginView = () => {
   const [usuario, setUsuario] = useState('');
@@ -83,11 +83,11 @@ const LoginView = () => {
       </form>
 
       <div className="forgot-link">
-        <span>¿Olvidaste tu contraseña?</span> <a href="/forgot">Recuperar aquí</a>
+        <span>¿Olvidaste tu contraseña?</span> <Link to="/forgot">Recuperar aquí</Link>
       </div>
 
       <div className="register-toggle">
-        ¿No tienes cuenta? <a href="/register">Regístrate ahora</a>
+        ¿No tienes cuenta? <Link to="/register">Regístrate ahora</Link>
       </div>
     </div>
   );

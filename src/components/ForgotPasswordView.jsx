@@ -1,20 +1,24 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 const ForgotPasswordView = () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState(null);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //Aquí iría la lógica de llamada a tu API de reset password
 
     if (!email) {
-        setMessage('Por favor, ingresa un correo electrónico.');
-        return;
+      setMessage('Por favor, ingresa un correo electrónico.');
+      return;
     }
 
     alert(`Se ha enviado el enlace de restablecimiento de contraseña al email: ${email}. Revisa tu bandeja de spam.`);
-    setMessage(null); // Limpiar mensaje
+    setMessage(null);
+    
+    // Redirige al login sin recargar la página
+    navigate('/login');
   };
 
   return (
@@ -25,7 +29,7 @@ const ForgotPasswordView = () => {
       </p>
 
       <form onSubmit={handleSubmit} id="forgot-password-form">
-        {/* Aquí se podría mostrar un mensaje si falla la API */}
+        {message && <div className="message">{message}</div>}
         
         <div className="form-group">
           <label htmlFor="email">Correo Electrónico</label>
@@ -42,7 +46,7 @@ const ForgotPasswordView = () => {
       </form>
 
       <div className="register-toggle" style={{ marginTop: '30px' }}>
-        ¿Regresas al <a href="/login">Inicio de Sesión</a>?
+        ¿Regresas al <Link to="/login">Inicio de Sesión</Link>?
       </div>
     </div>
   );
