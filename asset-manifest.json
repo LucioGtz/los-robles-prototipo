@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/los-robles-prototipo/static/css/main.a28bfc0e.css",
-    "main.js": "/los-robles-prototipo/static/js/main.1ad09854.js",
+    "main.js": "/los-robles-prototipo/static/js/main.c41cf73b.js",
     "static/js/453.e7ea26ef.chunk.js": "/los-robles-prototipo/static/js/453.e7ea26ef.chunk.js",
     "index.html": "/los-robles-prototipo/index.html",
     "main.a28bfc0e.css.map": "/los-robles-prototipo/static/css/main.a28bfc0e.css.map",
-    "main.1ad09854.js.map": "/los-robles-prototipo/static/js/main.1ad09854.js.map",
+    "main.c41cf73b.js.map": "/los-robles-prototipo/static/js/main.c41cf73b.js.map",
     "453.e7ea26ef.chunk.js.map": "/los-robles-prototipo/static/js/453.e7ea26ef.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a28bfc0e.css",
-    "static/js/main.1ad09854.js"
+    "static/js/main.c41cf73b.js"
   ]
 }
