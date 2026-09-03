@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/los-robles-prototipo/static/css/main.a28bfc0e.css",
+    "main.js": "/los-robles-prototipo/static/js/main.d6b8d6ac.js",
+    "static/js/453.e7ea26ef.chunk.js": "/los-robles-prototipo/static/js/453.e7ea26ef.chunk.js",
+    "index.html": "/los-robles-prototipo/index.html",
+    "main.a28bfc0e.css.map": "/los-robles-prototipo/static/css/main.a28bfc0e.css.map",
+    "main.d6b8d6ac.js.map": "/los-robles-prototipo/static/js/main.d6b8d6ac.js.map",
+    "453.e7ea26ef.chunk.js.map": "/los-robles-prototipo/static/js/453.e7ea26ef.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a28bfc0e.css",
+    "static/js/main.d6b8d6ac.js"
+  ]
+}
