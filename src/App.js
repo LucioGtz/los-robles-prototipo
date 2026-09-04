@@ -1,3 +1,4 @@
+import PaseQR from './components/PaseQR';
 import React from 'react';
 import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
@@ -11,6 +12,7 @@ function App() {
   return (
     <Router> 
       <Routes>
+        <Route path="/" element={<PaseQR />} />
         <Route path="/" element={<RegisterView />} /> 
         <Route path="/login" element={<LoginView />} />
         <Route path="/register" element={<RegisterView />} /> 
